@@ -1,0 +1,13 @@
+server:
+  port: 9001
+  
+eureka:
+  instance:
+    hostname: eurekaserver9001.com     #配置主机名
+  client:
+    register-with-eureka: false   #是否将自己注册到注册中心中
+    fetch-registry: false   #表示自己就是注册中心，负责维护其他的注册的服务
+    service-url:
+      #defaultZone: http://eurekaserver9002.com:9002/eureka/,http://eurekaserver9003.com:9003/eureka/
+      #其他服务在注册时通过什么url进行注册，怎么找到注册中心
+      defaultZone: http://eurekaserver9001.com:9001/eureka/

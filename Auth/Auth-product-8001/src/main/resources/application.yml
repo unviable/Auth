@@ -1,0 +1,35 @@
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml   #mybatis的主配置文件
+  type-aliases-package: com.huawei.pojo       #给哪个包下的类取别名      resultType="Product"
+  
+spring:
+  application:
+    name: woniu58-provider  #当前项目名，微服务的名字   非常重要
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 指定连接书库的类名
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/java58
+    username: root
+    password: 
+    dbcp2:
+      min-idle: 5   #连接池最小连接数
+      initial-size: 5 #初始化大小
+      max-total: 10 #最大连接数
+      max-wait-millis: 200  #最大等待时间      
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://eurekaserver9001.com:9001/eureka/ #,http://eurekaserver9002.com:9002/eureka/,http://eurekaserver9003.com:9003/eureka/
+  instance:
+    instance-id: woniu58-provider-8001 #配置中心中显示微服务的名称
+    prefer-ip-address: true   #是否显示访问微服务的url（可选）
+    
+info: 
+  app.name: SpringCloud58
+  auther: jacobpeng
+  message: this project is get product info
+    
